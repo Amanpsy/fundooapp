@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import '../takeNote2/takeNote2.css'
 import AddAlertOutlinedIcon from '@mui/icons-material/AddAlertOutlined';
 import IconButton from '@mui/material/IconButton';
@@ -10,41 +10,76 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import { Button } from "@mui/material";
+import { createNoteAPI } from "../../Services/dataService";
 
-function Takenote2() {
+function Takenote2(props) {
+
+
+    
+    const[createNote,setCreateNote] = useState({title:'', description:''})
+
+    const takeTitle = (event) =>{
+        setCreateNote(prevState =>({
+            ...prevState,
+            title:event.target.value
+        }))
+        
+    }
+    const takeDescription =(event) => {
+        setCreateNote(prevState =>({
+            ...prevState,
+            description: event.target.value
+        }))
+    }
+    
+    const create =() => {
+
+
+        props.closeTakeNote2()
+        console.log("created note", createNote)
+
+         createNoteAPI(createNote)
+        .then((response)=>{console.log(response)})
+        .catch((error)=>{console.log(error)} )
+        console.log('notes created')
+    }
+
+ 
+
     return(
         <div className="takenote2">
             <form>
-            <input type="text" placeholder="Title" name="title" />
+            <input type="text" placeholder="Title" name="title" onChange={takeTitle} />
             <div>
-                <input className="note" type={'text'} name="content" placeholder="Take a note..." />
+                <input className="note" type={'text'} name="content" placeholder="Take a note..." onChange={takeDescription}
+                sx={{marginLeft:15}} />
             </div>
             </form>
-            <IconButton type="button" sx={{ marginTop:-21 ,marginLeft:53}}>
-                <AddAlertOutlinedIcon />
+            <IconButton type="button" sx={{ marginTop:-21 ,marginLeft:30}}>
+                <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
             </IconButton>  
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <PersonAddAltOutlinedIcon />
+                <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
             </IconButton>  
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <PaletteOutlinedIcon />
+                <PaletteOutlinedIcon></PaletteOutlinedIcon>
             </IconButton>
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <ImageOutlinedIcon />
+                <ImageOutlinedIcon></ImageOutlinedIcon>
             </IconButton>
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <ArchiveOutlinedIcon />
+                <ArchiveOutlinedIcon></ArchiveOutlinedIcon>
             </IconButton>
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <MoreVertOutlinedIcon />
+                <MoreVertOutlinedIcon></MoreVertOutlinedIcon>
             </IconButton>
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <UndoOutlinedIcon />
+                <UndoOutlinedIcon></UndoOutlinedIcon>
             </IconButton>
             <IconButton type="button" sx={{ marginTop:-21.2 ,marginLeft:1}}>
-                <RedoOutlinedIcon />
+                <RedoOutlinedIcon></RedoOutlinedIcon>
             </IconButton>
-            <IconButton type="button" sx={{ marginLeft: 16,marginTop:-21,fontSize:16,}}>Close</IconButton>
+            <IconButton type="button" onClick={create} sx={{ marginLeft: 4,marginTop:-21,fontSize:16,}}>Close</IconButton>
         </div>
     )
 }

@@ -56,8 +56,10 @@ setRegexobj((prevState) => ({...prevState, passwordBorder:true, passwordHelper:"
 
  
 if(checkEmail === true && checkPassword === true){
-loginApi(signObj)  
-.then((response) => {console.log(response)})
+loginApi(signObj).then((response) => {console.log(response)
+
+  localStorage.setItem("token",response.data.data)
+})
 .catch((error) =>{console.log(error)} )
 console.log('Login sucessful')
     

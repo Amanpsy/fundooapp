@@ -1,22 +1,23 @@
-div{
-    position:fixed;
-    top: 0;
+.HeaderBar{
+    margin-top: -290px;
     width: 100vw;
-    height: 9.5vh;
+   
+    height: 9.6vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     border: 1.5px solid lightgray;
 }
-img{
+.HeaderBar img{
     margin-top: 4px;
     margin-left: 9px;
     height:42px;
     width: 40px;
 }
-h1{
-    font-size:20px;
+.HeaderBar h1{
+    font-size:21px;
     margin-left: 8px;
-    margin-top: 4px;
-    color: rgb(66, 65, 65);
+    margin-top: 15px;
+    color: rgb(102, 101, 101);
+    font-family: sans-serif;
 }

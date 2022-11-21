@@ -6,8 +6,10 @@ export const loginApi = (loginObj) => {
 }
 
 export const signupApi  =(registerobj) => {
-    // let response = axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp ',registerobj)
+   
   
-     let response = axios.post('https://localhost:44342/api/User/Register',registerobj)
+    let response = axios.post('https://localhost:44342/api/User/Register',registerobj)
     return response
 }
+
+ // let response = axios.post('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp ',registerobj)

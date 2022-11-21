@@ -11,20 +11,21 @@ const passwordRegex =
   /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 const fnameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 function Register() {
-	const [signupobj, setsignupobj] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		password: "",
-		service: "advance"
-	  });
+  
+	// const [signupobj, setsignupobj] = useState({
+	// 	firstName: "",
+	// 	lastName: "",
+	// 	email: "",
+	// 	password: "",
+	// 	service: "advance"
+	//   });
 
-//   const [signupobj, setsignupobj] = useState({
-//     firstName: "",
-//     lastName: "",
-//     email: "",
-//     password: "",
-//   });
+   const [signupobj, setsignupobj] = useState({
+     firstName: "",
+     lastName: "",
+     email: "",
+     password: "",
+   });
 
   const [regexobj, setregexobj] = useState({
     fnameBorder: false,
@@ -143,7 +144,7 @@ function Register() {
     }
 
     // console.log(signupobj)
-    // console.log("registered sucessfully");
+    //console.log("registered sucessfully");
   };
 
   return (
