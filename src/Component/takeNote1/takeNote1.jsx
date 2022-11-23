@@ -19,13 +19,13 @@ return(
 
   <div className="takenote1" onClick={openNote}>
   <input type="text" placeholder="Take a note..."  />
-  <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:18 }}>
+  <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:54}}>
       <CheckBoxOutlinedIcon></CheckBoxOutlinedIcon>
   </IconButton>
   <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:1}}>
             <BrushOutlinedIcon></BrushOutlinedIcon>
   </IconButton>
-  <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:0.1,marginRight:3}}>
+  <IconButton type="button" sx={{ marginTop:-8 ,marginLeft:2,marginRight:12}}>
             <InsertPhotoOutlinedIcon></InsertPhotoOutlinedIcon>
   </IconButton>
 </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const headerConfig = {
-    headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
-}
+    headers: {Authorization:`Bearer ${localStorage.getItem('token')}`}}
+
 
 
 export const createNoteAPI  =(noteObj) => {
@@ -13,9 +13,8 @@ export const createNoteAPI  =(noteObj) => {
 }
 
 export const getNoteAPI =() => {
-   
-  
-    let response = axios.post('https://localhost:44342/api/Note/GetNote',headerConfig)
+     
+    let response = axios.get('https://localhost:44342/api/Note/GetNote',headerConfig)
     return response
 }
 

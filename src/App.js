@@ -15,12 +15,16 @@ import Takenote3 from "./Component/takeNote3/takeNote3";
 function App() {
   return (
     <div className="App">
-     
-     <Dashboard></Dashboard>
+       <Dashboard></Dashboard> 
+      {/* <Signin></Signin>   */}
+           
+            
 
-   
+  {/* <Takenote3></Takenote3>  */}
+
+
     
-    </div>
+</div>
   );
 }
 

@@ -13,10 +13,15 @@ import { TextField } from "@mui/material";
 
 
 
-function Header() {
+function Header(props) {
+
+const menuOpen = () =>{
+props.headerpart()
+}
+
     return(
         <div className="HeaderBar">
-            <IconButton type="button" sx={{ marginLeft:1.7}}>
+            <IconButton type="button" onClick={menuOpen} sx={{ marginLeft:1.7}}>
                 <MenuIcon/>
             </IconButton>
 
