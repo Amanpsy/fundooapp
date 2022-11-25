@@ -12,8 +12,17 @@ import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
 import { Button } from "@mui/material";
 import { createNoteAPI } from "../../Services/dataService";
 import ColorPopper from "../ColorPopper/ColorPopper";
+import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 
 function Takenote2(props) {
+
+const noteColor=(bgColor)=> {
+  setCreateNote(prevState => ({
+    ...prevState,
+    colour:bgColor
+  }))
+
+}
 
 
   const noteArchieve=()=> {
@@ -26,7 +35,8 @@ function Takenote2(props) {
   const [createNote, setCreateNote] = useState({ 
     title: "", 
     description: "" ,
-    archieve:false
+    archieve:false,
+    colour:''
   
   });
 
@@ -62,15 +72,15 @@ function Takenote2(props) {
   };
 
   return (
-    <div className="takenote2">
-      <form>
+    <div className="takenote2 "  >
+      <form  style={{ backgroundColor:createNote.colour }}>
         <input
           type="text"
           placeholder="Title"
           name="title"
-          onChange={takeTitle}
+          onChange={takeTitle}  style={{ backgroundColor:createNote.colour }}
         />
-        <div>
+        <div >
           <input
             className="note"
             type={"text"}
@@ -78,19 +88,25 @@ function Takenote2(props) {
             placeholder="Take a note..."
             onChange={takeDescription}
             sx={{ marginLeft: 15 , marginTop: 5}}
+            style={{ backgroundColor:createNote.colour }}
           />
         </div>
       </form>
+
+
+
       <IconButton type="button" sx={{ marginTop: -21, marginLeft: 10 }}>
         <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
       </IconButton>
+      
       <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
         <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
       </IconButton>
     
-      <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
-              <ColorPopper />
-            </IconButton> 
+      <IconButton type="button" sx={{ marginTop: -21.2 ,marginLeft:'5px'}}>
+            <ColorPopper noteColor={noteColor} />
+              
+          </IconButton> 
 
       <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
         <ImageOutlinedIcon></ImageOutlinedIcon>

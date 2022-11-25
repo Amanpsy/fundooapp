@@ -28,7 +28,7 @@ function Takenote3 (props) {
   return (
     <div>
         <div  className='notebox'>
-          <div className='insidebox'>
+          <div className='insidebox'  style={{ backgroundColor:props.note.colour }}>
             <div className="title">
                <span>{props.note.title}</span>
             
