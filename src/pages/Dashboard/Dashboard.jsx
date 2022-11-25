@@ -13,6 +13,7 @@ function Dashboard() {
     const[headerState,setHeaderState] = useState(false)
     
     
+    
  const openTakeNote2 = () => {
       settoggle(true)
   }
@@ -25,7 +26,7 @@ settoggle(false)
 const getNotes =() =>{
   getNoteAPI()
       .then((response)=>{console.log(response)
-        // setGetNote(response)
+        setGetNote(response.data.data)
       })
       .catch((error)=>{console.log(error)})
       console.log('NotesList')
@@ -44,21 +45,23 @@ setHeaderState(!headerState)
 
     <div>
   <Header headerpart={headerpart} />
+
   <Drawer1  headerState={headerState}/>
      <div>
     {
       toggle ? <Takenote2 closeTakeNote2={closeTakeNote2} /> : <Takenote1 openTakeNote2={openTakeNote2} />
     }
     
-    <div>
+
+    <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',width:'70vw',position:'relative',left:'200px',height:'auto'}}>    
                 {
-                    getNote.map((notes)=>(<Takenote3/>))
+                  
+                    getNote.map((note)=>(<Takenote3 note={note}/>))
                 }
             </div>
   
-      </div>
-  
-</div>
+  </div>
+  </div>
 
 
   )

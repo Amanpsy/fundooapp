@@ -101,7 +101,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 <LightbulbOutlinedIcon />
              
                 </ListItemIcon>
-                <ListItemText primary="Notes" whiteSpace />
+                <ListItemText primary="Notes" />
               </ListItemButton>
             </ListItem>
             <ListItem  disablePadding sx={{ display: 'block' }}>
@@ -113,7 +113,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 > 
                  <NotificationsOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Remainder" whiteSpace />
+                <ListItemText primary="Remainder" />
               </ListItemButton>
             </ListItem>
             

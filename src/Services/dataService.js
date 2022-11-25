@@ -18,3 +18,9 @@ export const getNoteAPI =() => {
     return response
 }
 
+export const getArchievenoteAPI = (noteId) => {
+    let response = axios.put(`https://localhost:44342/api/Note/Archieve?noteId=${noteId}`,noteId,headerConfig)
+    console.log('Archieved sucessfully')
+    return response;
+}
+

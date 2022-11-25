@@ -1,6 +1,7 @@
 
 .takenote2 form{
-    width: 600px;
+    height: 18vh;
+    width: 41.5vw;
     margin: 32px auto 57px auto;
     background: #fff;
     padding: 7px;
@@ -9,24 +10,26 @@
     position: relative;
     top:3px;
     left: 46px;
+
    }
    .takenote2 form input{
     width: 98%;
     border: none;
     margin: 4px 10px;
-    margin-top: 60;
-    margin-bottom: 5px;
+ margin-bottom: 20px;
     font-size: 1rem;
     outline: none;
+
    }
    .takenote2 .note{
-    height: 2.8vh;
-    width: 8vw;
+    height: 3vh;
+    width: 10vw;
     display: flex;
     flex-direction: row;
     align-items: center;
     box-shadow: 0 0 4px 0 gray;
-    margin-top: 32.5%;
+    margin-top: 1%;
+    margin-bottom: 30px;
     margin-left: 1%;
     border-radius: 0.5rem;
     border: none;

@@ -11,9 +11,24 @@ import UndoOutlinedIcon from "@mui/icons-material/UndoOutlined";
 import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
 import { Button } from "@mui/material";
 import { createNoteAPI } from "../../Services/dataService";
+import ColorPopper from "../ColorPopper/ColorPopper";
 
 function Takenote2(props) {
-  const [createNote, setCreateNote] = useState({ title: "", description: "" });
+
+
+  const noteArchieve=()=> {
+    setCreateNote(prevState => ({
+      ...prevState,
+      archieve:true
+    }))
+  }
+
+  const [createNote, setCreateNote] = useState({ 
+    title: "", 
+    description: "" ,
+    archieve:false
+  
+  });
 
   const takeTitle = (event) => {
     setCreateNote((prevState) => ({
@@ -31,6 +46,10 @@ function Takenote2(props) {
   const create = () => {
     props.closeTakeNote2();
     console.log("created note", createNote);
+
+   
+
+
 
     createNoteAPI(createNote)
       .then((response) => {
@@ -58,24 +77,26 @@ function Takenote2(props) {
             name="content"
             placeholder="Take a note..."
             onChange={takeDescription}
-            sx={{ marginLeft: 15 }}
+            sx={{ marginLeft: 15 , marginTop: 5}}
           />
         </div>
       </form>
-      <IconButton type="button" sx={{ marginTop: -21, marginLeft: 30 }}>
+      <IconButton type="button" sx={{ marginTop: -21, marginLeft: 10 }}>
         <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
       </IconButton>
       <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
         <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
       </IconButton>
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <PaletteOutlinedIcon></PaletteOutlinedIcon>
-      </IconButton>
+    
+      <IconButton type="button" sx={{ marginTop:'-75px' ,marginLeft:'5px'}}>
+              <ColorPopper />
+            </IconButton> 
+
       <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
         <ImageOutlinedIcon></ImageOutlinedIcon>
       </IconButton>
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <ArchiveOutlinedIcon></ArchiveOutlinedIcon>
+      <IconButton type="button"  sx={{ marginTop: -21.2, marginLeft: 1 }}>
+        <ArchiveOutlinedIcon  onClick={noteArchieve}/>
       </IconButton>
       <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
         <MoreVertOutlinedIcon></MoreVertOutlinedIcon>
@@ -96,5 +117,4 @@ function Takenote2(props) {
     </div>
   );
 }
-
-export default Takenote2;
+export default Takenote2

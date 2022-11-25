@@ -13,20 +13,34 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
 import Button from '@mui/material/Button';
+import { getArchievenoteAPI } from '../../Services/dataService';
 
-function Takenote3 () {
+function Takenote3 (props) {
+
+      const updateArchieve =(id) => {
+            getArchievenoteAPI(id)
+      .then((response) => console.log(response))
+      .catch((error)=>console.log(error))
+      console.log('Achieve sucess')
+
+      }
       
   return (
     <div>
         <div  className='notebox'>
           <div className='insidebox'>
             <div className="title">
-               
+               <span>{props.note.title}</span>
+            
+
                 <Tooltip title='Pin note'>
                     <IconButton size='small'><PushPinOutlinedIcon /></IconButton>
                 </Tooltip>
-            </div>
-        
+            </div> 
+           
+         <div className='description'>
+            <span>{props.note.description} </span>
+        </div> 
             <div className='logo'>
                   <Tooltip title='Remind me'>
                         <IconButton size='small'><AddAlertOutlinedIcon /></IconButton>
@@ -40,7 +54,7 @@ function Takenote3 () {
                   <Tooltip title='Add image'>
                         <IconButton size='small'><InsertPhotoOutlinedIcon /></IconButton>
                   </Tooltip>
-                  <Tooltip title='Archive'>
+                  <Tooltip title='Archieve' onClick={()=>updateArchieve(props.note.noteId)}>
                         <IconButton size='small'><ArchiveOutlinedIcon /></IconButton>
                   </Tooltip>
                   <Tooltip title='More'>

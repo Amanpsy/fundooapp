@@ -3,29 +3,35 @@
     flex-direction: row;
     border-color: black;
     height: 25vh;
-    margin-top: 30px;
-    justify-content:center;
-    width: 45vw;
+     margin-left: 5px;
+    margin-top: 7px; 
+    justify-content:space-between;
+    width: 20vw;
+    border: 1px solid black
+    
+    
 }
+
 
 .insidebox{
     display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 80%;
+    width: 100%;
+    height: 99%;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-    justify-content: flex-end;
+    justify-content: flex;
 }
 .title{
-    margin-left: 85%;
+    margin-left: 20%;
     margin-bottom: 20%;
+    margin-top: 40;
 }
 .note-txt3{
     padding-inline-start: 3%;
 }
-.description3{
+.description{
     height: 50%;
 }
 .logo{
@@ -34,4 +40,5 @@
     justify-content: space-between;  
     align-items: center;
     height: 30%;
+    margin-bottom: 100;
 }
