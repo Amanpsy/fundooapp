@@ -17,6 +17,7 @@ function App() {
     <div className="App">
               
   <Dashboard></Dashboard>  
+  {/* <Signin></Signin> */}
   
      
   {/* <Takenote3></Takenote3>  */}

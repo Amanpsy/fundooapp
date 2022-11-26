@@ -77,17 +77,23 @@ const noteColor=(bgColor)=> {
       <form  style={{ backgroundColor:createNote.colour }}>
         <input
           type="text"
+          
           placeholder="Title"
+          onChange={takeTitle}
           name="title"
-          onChange={takeTitle}  style={{ backgroundColor:createNote.colour }}
+            style={{ backgroundColor:createNote.colour }}
+           
+
+
         />
         <div >
           <input
             className="note"
-            type={"text"}
-            name="content"
+            type="text"
+            name="Description"
             placeholder="Take a note..."
             onChange={takeDescription}
+           
             sx={{ marginLeft: 15 , marginTop: 5}}
             style={{ backgroundColor:createNote.colour }}
           />

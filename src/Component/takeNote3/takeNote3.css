@@ -42,3 +42,19 @@
     height: 30%;
     margin-bottom: 100;
 }
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  
+}
+.buttonmodal{
+    display: flex;
+    padding: 5px;
+    width: 65%;
+    justify-content: space-between;
+}   
+.closebtn{
+    margin-right: 25px;
+}
