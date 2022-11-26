@@ -36,7 +36,8 @@ const noteColor=(bgColor)=> {
     title: "", 
     description: "" ,
     archieve:false,
-    colour:''
+    colour:'',
+    trash:false
   
   });
 
@@ -104,7 +105,7 @@ const noteColor=(bgColor)=> {
       </IconButton>
     
       <IconButton type="button" sx={{ marginTop: -21.2 ,marginLeft:'5px'}}>
-            <ColorPopper noteColor={noteColor} />
+            <ColorPopper action="create" noteColor={noteColor} />
               
           </IconButton> 
 

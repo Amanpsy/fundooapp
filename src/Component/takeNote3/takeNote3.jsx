@@ -12,10 +12,47 @@ import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoOutlinedIcon from '@mui/icons-material/UndoOutlined';
 import RedoOutlinedIcon from '@mui/icons-material/RedoOutlined';
+import { deletenoteAPI, getArchievenoteAPI } from '../../Services/dataService';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import ColorPopper from '../ColorPopper/ColorPopper';
 import Button from '@mui/material/Button';
-import { getArchievenoteAPI } from '../../Services/dataService';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
-function Takenote3 (props) {
+
+function Takenote3 (props) {  
+      //modal
+
+      const style = {
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 400,
+            bgcolor: 'background.paper',
+            border: '2px solid #000',
+            boxShadow: 24,
+            p: 4,
+          };
+          const [open, setOpen] = React.useState(false);
+          const handleOpen = () => setOpen(true);
+          const handleClose = () => setOpen(false);
+        
+
+      const updateColor=() => {
+
+            props.autoRefresh()
+      }
+      // console.log(props.note.colour)
+
+      const deleteNote=(id)=>{
+            deletenoteAPI(id)
+             .then((response)=>console.log(response))
+             .catch((error)=>console.log(error))
+             console.log(" Successfully Deleted")
+       }
+
 
       const updateArchieve =(id) => {
             getArchievenoteAPI(id)
@@ -28,9 +65,9 @@ function Takenote3 (props) {
   return (
     <div>
         <div  className='notebox'>
-          <div className='insidebox'  style={{ backgroundColor:props.note.colour }}>
-            <div className="title">
-               <span>{props.note.title}</span>
+          <div className='insidebox'  style={{ backgroundColor:props.note.colour}}>
+            <div className="title" onClick={handleOpen}>  
+               <span >   {props.note.title}</span>
             
 
                 <Tooltip title='Pin note'>
@@ -48,8 +85,14 @@ function Takenote3 (props) {
                   <Tooltip title='Collaborator'>
                         <IconButton size='small'><PersonAddAltOutlinedIcon /></IconButton>
                   </Tooltip>
+                  <Tooltip title='Delete' onClick={()=>deleteNote(props.note.noteId)} >
+                        <IconButton size='small' ><DeleteOutlineOutlinedIcon /></IconButton>
+                  </Tooltip>
+
+
                   <Tooltip title='Background options'>
-                        <IconButton size='small'><ColorLensOutlinedIcon /></IconButton>
+                        <IconButton size='small'>   <ColorPopper action="update" id={props.note.noteId} updateColor={updateColor} /></IconButton>
+                              {/* <ColorPopper  action="update" id={props.note.noteId} updateColor={updateColor} /></IconButton> */}
                   </Tooltip>
                   <Tooltip title='Add image'>
                         <IconButton size='small'><InsertPhotoOutlinedIcon /></IconButton>
@@ -63,6 +106,22 @@ function Takenote3 (props) {
             </div>
           </div>
         </div>
+      
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
     </div> 
   )
 }

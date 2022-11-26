@@ -29,8 +29,12 @@ const getNotes =() =>{
         setGetNote(response.data.data)
       })
       .catch((error)=>{console.log(error)})
-      console.log('NotesList')
+      console.log('Notes List')
 
+}
+
+const autoRefresh=()=>{
+getNote()
 }
 
 useEffect(()=>{
@@ -56,7 +60,7 @@ setHeaderState(!headerState)
     <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',width:'70vw',position:'relative',left:'200px',height:'auto'}}>    
                 {
                   
-                    getNote.map((note)=>(<Takenote3 note={note}/>))
+                    getNote.map((note)=>(<Takenote3 note={note} autoRefresh={autoRefresh}/>))
                 }
             </div>
   

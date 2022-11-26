@@ -24,3 +24,15 @@ export const getArchievenoteAPI = (noteId) => {
     return response;
 }
 
+export const deletenoteAPI=(noteId)=>{
+    let response= axios.put(`https://localhost:44342/api/Note/Trash?noteId=${noteId}`,noteId,headerConfig)
+    console.log("Notes Trashed")
+    return response;
+}
+
+export const updateColorAPI =(input) => {
+ 
+    let response = axios.put(`https://localhost:44342/api/Note/Colour?noteId=${input.noteId}&Color=${input.Colour}`,input,headerConfig)
+    return response;
+}
+
