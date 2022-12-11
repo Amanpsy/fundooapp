@@ -23,12 +23,13 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-
+import { StepConnector } from '@mui/material';
+import {connect} from 'react-redux'
 
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
-    marginTop:52,
+    marginTop:65,
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -38,7 +39,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
-    marginTop:52,
+    marginTop:65,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -83,16 +84,24 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     setOpen(false);
   };
 
+const selectOption=(noteOption)=>{
+props.designDrawer(noteOption)
+props.dispatch({
+  type:`${noteOption}`
+})
+}
+
+
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex',marginBottom:5 }}>
       <CssBaseline />
     
       <Drawer variant="permanent" open={props.headerState}>
         
         <List>
           
-            <ListItem  disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
+            <ListItem  onClick={()=>selectOption('Notes')} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton 
               
               >
                 <ListItemIcon
@@ -104,7 +113,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 <ListItemText primary="Notes" />
               </ListItemButton>
             </ListItem>
-            <ListItem  disablePadding sx={{ display: 'block' }}>
+            <ListItem  onClick={()=>selectOption('Reminders')} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
               
               >
@@ -113,12 +122,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 > 
                  <NotificationsOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Remainder" />
+                <ListItemText  primary="Remainder" />
               </ListItemButton>
             </ListItem>
             
-          <ListItem disablePadding sx={{ display: 'block'}}>
-            <ListItemButton style={{paddingLeft:10,height:50}}>
+          <ListItem  onClick={()=>selectOption('Edit')}  disablePadding sx={{ display: 'block'}}>
+            <ListItemButton style={{paddingLeft:10,height:60}}>
               <IconButton size='large' style={{marginRight:15}}>
                 <EditOutlinedIcon />
               </IconButton>
@@ -126,17 +135,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block'}}>
+          <ListItem onClick={()=>selectOption('Archieve')} disablePadding sx={{ display: 'block'}}>
             <ListItemButton style={{paddingLeft:10,height:50}}>
               <IconButton size='large' style={{marginRight:15}}>
                 <ArchiveOutlinedIcon />
               </IconButton>
-              <ListItemText primary="Archive" />
+              <ListItemText primary="Archieve" />
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding sx={{ display: 'block'}}>
-            <ListItemButton style={{paddingLeft:10,height:50}}>
+          <ListItem onClick={()=>selectOption('Bin')}  disablePadding sx={{ display: 'block'}}>
+            <ListItemButton style={{paddingLeft:10,height:40}}>
               <IconButton size='large' style={{marginRight:15}}>
                 <DeleteOutlinedIcon />
               </IconButton>
@@ -151,4 +160,4 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   );
 }
 
-export default Drawer1;
+export default connect()(Drawer1);

@@ -11,19 +11,22 @@ import Register from './pages/Register/Register';
 import Dashboard from "./pages/Dashboard/Dashboard";
  import Signin from './pages/Signin/Signin';
 import Takenote3 from "./Component/takeNote3/takeNote3";
+import { Drawer } from "@mui/material";
+import { Provider } from "react-redux";
+import store from "./Component/Redux/store";
+import Router1 from "./pages/Router/router";
 
 function App() {
   return (
     <div className="App">
-              
-  <Dashboard></Dashboard>  
-  {/* <Signin></Signin> */}
+               
   
-     
-  {/* <Takenote3></Takenote3>  */}
+{/* <Dashboard /> */}
+<Provider store={store}>
+<Router1 ></Router1>
+</Provider>
 
 
-    
 </div>
   );
 }

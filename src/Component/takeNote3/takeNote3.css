@@ -1,17 +1,16 @@
-.notebox{
+/* .notebox{
     display: flex;
     flex-direction: row;
     border-color: black;
     height: 25vh;
-     margin-left: 5px;
-    margin-top: 7px; 
+     margin-left: 12px;
+    margin-bottom: 12px; 
     justify-content:space-between;
     width: 20vw;
-    border: 1px solid black
-    
-    
-}
+    border: 1px solid black; 
 
+
+}
 
 .insidebox{
     display: flex;
@@ -22,9 +21,9 @@
     border-radius: 8px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
     justify-content: flex;
-}
-.title{
-    margin-left: 20%;
+} 
+ .title{
+    margin-left: 10%;
     margin-bottom: 20%;
     margin-top: 40;
 }
@@ -33,7 +32,8 @@
 }
 .description{
     height: 50%;
-}
+    left: 18%;
+} 
 .logo{
     display: flex;
     flex-direction: row;
@@ -41,20 +41,22 @@
     align-items: center;
     height: 30%;
     margin-bottom: 100;
-}
+} 
 
-.icons{
+  .icons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;  
-}
-.buttonmodal{
+} 
+ .buttonmodal{
     display: flex;
-    padding: 5px;
-    width: 65%;
+    padding: 1px;
+    width: 99%;
+    height: 2px;
     justify-content: space-between;
 }   
 .closebtn{
-    margin-right: 25px;
-}
+    margin-right: 22px; 
+    
+}   */

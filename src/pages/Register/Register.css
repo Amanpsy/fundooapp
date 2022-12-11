@@ -1,4 +1,4 @@
-.container{
+/* .container{
     height: 90vh;
     width: 55vw;
     border: 5px solid #dadce0;
@@ -8,7 +8,7 @@
   
   }
   .right img{
-      width: 70%;
+      width: 100%;
       
       margin: 9rem 2.7rem;
   }
@@ -22,29 +22,12 @@
       width: 70%;
   } 
 
-  h3{
-	color: #2d3436;
-	margin: 2rem 0;
-}
-form span{
-	color: gray;
-	width: 100%;
-	font-size: 0.8rem;
-	margin-left: 3%;
-}
 
-form a{
-	text-decoration: none;
-	font-weight: 500;
-	font-size: 1rem;
-	color: #3498db;
-	margin-left: 2%;
-}
-.bottom-link{
+.bottomLink{
 	width: 100%;
 	display: flex;
 
 	margin-top: 2.5rem;
 }
 
-
+ */

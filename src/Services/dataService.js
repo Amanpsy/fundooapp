@@ -31,14 +31,14 @@ export const deletenoteAPI=(noteId)=>{
 }
 
 
-export const updatenoteAPI=(noteId)=>{
-    let response= axios.put(`https://localhost:44342/api/Note/UpdateNote?noteId=${noteId}`,noteId,headerConfig)
+export const updatenoteAPI=(noteId,obj)=>{
+    let response= axios.put(`https://localhost:44342/api/Note/UpdateNote?noteId=${noteId}`,headerConfig)
     console.log("Notes Updated sucessfully")
     return response;
 }
-export const updateColorAPI =(input) => {
+export const updateColorAPI =(inputId,inputColor) => {
  
-    let response = axios.put(`https://localhost:44342/api/Note/Colour?noteId=${input.noteId}&Color=${input.Colour}`,input,headerConfig)
-    return response;
+    let response = axios.put(` https://localhost:44342/api/Note/Colour?noteId=${inputId.noteId}&Colour=${inputColor.Colour}`,inputColor,headerConfig)
+    return response;           
 }
 

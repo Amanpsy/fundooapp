@@ -6,8 +6,8 @@ import { updateColorAPI } from '../../Services/dataService';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 
  function ColorPopper(props) {
-  const colors = ["#2ECC71", "#AF7AC5", "#F1948A", "#A3E4D7", "#F5B7B1", "#F5B041", "#DC7633", "#F1C40F", "#AAB7B8", "#F1948A", "#2ECC71", "#F5B041"]
-
+  // const colors = ["#2ECC71", "#cAF7AC5", "#F1948A", "#A3E4D7", "#F5B7B1", "#F5B041", "#DC7633", "#F1C40F", "#AAB7B8", "#F1948A", "#2ECC71", "#F5B041"]
+  const colors=["red","green","yellow","grey","purple","orange","pink","blue","indigo","cyan","mustard"," silver","gold"]
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -28,9 +28,10 @@ const  createColor=(color)=> {
   else if(props.action=="update"){
   
   
-    let input={noteId:props.id,colour:color}
-    console.log(input)
-    updateColorAPI(input)
+    let inputId={noteId:props.id}
+    let inputColor={Colour:color}
+    console.log(inputId)
+    updateColorAPI(inputId,inputColor)
     .then((response) =>{console.log(response)
       props.updateColor()})
     .catch((error) => console.log(error))

@@ -23,20 +23,152 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import { makeStyles } from "@mui/styles";
+
+const useStyle = makeStyles({
+  notebox: {
+    display: 'flex',
+    flexDirection: 'row',
+    borderColor: 'black',
+    height: '25vh',
+     marginLeft:' 12px',
+    marginBottom: '12px',
+    justifyContent:'space-between',
+    // width: '20vw'
+  },
+  insidebox: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height:' 99%',
+    border: '1px solid #e0e0e0',
+    borderRadius: '8px',
+    boxShadow: '1px 1px 5px rgba(0,0,0,0.6)',
+    justifyContent: 'flex'
+  },
+  title: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexRight : '2px',
+    justifyContent: 'space-between',
+    // marginBottom: '20%',
+    // marginTop: '40',
+     padding: '12px 16px 0px'
+  },
+  description:{
+    height: '50%' ,
+     left: '18%',
+     display: 'flex',
+     flexDirection: 'row',
+     flexRight : '2px',
+     justifyContent: 'space-between',
+     padding: '4px 16px 12px'
+
+  },
+  
+  logo:{
+    display:' flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '30%',
+    marginBottom: '100'
+  },
+  icons:{
+    display:' flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  modalContent:{
+    height: '182px',
+    borderRadius:'8px',
+    display : 'flex',
+    flexDirection:'column',
+    padding: '12px 16px'
+
+
+  },
+
+  titleInput:
+  {
+border: 'none',
+
+  },
+  notes:{
+  flex: 1,
+  border: 'none'
+
+  },
+  ['@media only screen and (min-width: 320px) and (max-width: 480px)']: {
+    notebox:{
+      left: "50%",
+      width: '100%',
+      
+      
+    },
+       
+    icons:{
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      left: '230px',
+     bottom:'65px'
+    }
+  },
+  ['@media only screen and (min-width: 481px) and (max-width: 768px)']: {
+    notebox:{
+      width: '50vw'
+      
+    },
+    insidebox:{
+      width: '100vw'
+    }
+       ,
+    icons:{
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      left: '230px',
+     bottom:'65px'
+    }
+  },
+
+ ['@media only screen and (min-width: 769px) and (max-width: 1024px)']: {
+    notebox:{
+    left: '80%'
+      
+    },
+       
+    icons:{
+      display: 'flex',
+      flexDirection: 'row',
+      position: 'relative',
+      left: '230px',
+     bottom:'65px'
+    }
+  }
+
+
+})
 
 function Takenote3(props) {
+
+  const classes = useStyle()
   //modal
 
   const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
+    position: "relative",
+    top: "38%",
+    left: "50px",
     transform: "translate(-50%, -50%)",
-    width: 399,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 1,
-    p: 4,
+    width: 550,
+    border: 'curve',
+    borderRadius: 2,
+    flexWrap: 'wrap',
+    
+    
+
   };
   const [open, setOpen] = React.useState(false);
   const [modalState, setModalstate] = useState({
@@ -87,23 +219,25 @@ function Takenote3(props) {
     }));
   };
 
-  const closebtn = (modalId) => {
-    setOpen(false);
-    console.log(modalId);
-    updatenoteAPI(modalId)
+  const closebtn = () => {
+    setOpen(false);    
+    updatenoteAPI(modalState.noteId, modalState)
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
     console.log("notes updated");
   };
 
+ 
+
+
   return (
     <div>
-      <div className="notebox">
+      <div className={classes.notebox}>
         <div
-          className="insidebox"
+          className={classes.insidebox}
           style={{ backgroundColor: props.note.colour }}
         >
-          <div className="title" onClick={() => handleOpen(props.note)}>
+          <div className={classes.title} onClick={() => handleOpen(props.note)}>
             <span>{props.note.title}</span>
 
             <Tooltip title="Pin note">
@@ -113,10 +247,10 @@ function Takenote3(props) {
             </Tooltip>
           </div>
 
-          <div className="description">
+          <div className={classes.description}>
             <span>{props.note.description} </span>
           </div>
-          <div className="logo">
+          <div className={classes.logo}>
             <Tooltip title="Remind me">
               <IconButton size="small">
                 <AddAlertOutlinedIcon />
@@ -175,9 +309,9 @@ function Takenote3(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <div style={{ backgroundColor: props.note.colour }}>
-            <input
+        <Box  sx={style }>
+          <div className={classes.modalContent} style={{ backgroundColor: props.note.colour }}>
+            <input className={classes.titleInput}
               style={{ backgroundColor: props.note.colour }}
               type="text"
               defaultValue={modalState.title}
@@ -187,13 +321,13 @@ function Takenote3(props) {
 
             <input
               style={{ backgroundColor: props.note.colour }}
-              className="note"
+              className={classes.notes}
               type={"text"}
               name="content"
               defaultValue={modalState.description}
               onChange={takeDescription}
             />
-            <div className="icons">
+            <div className={classes.icons}>
               <div className="buttonmodal">
                 <Tooltip title="Remind me">
                   <IconButton size="small">
