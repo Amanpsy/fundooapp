@@ -12,32 +12,29 @@ import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
 import { Button } from "@mui/material";
 import { createNoteAPI } from "../../Services/dataService";
 import ColorPopper from "../ColorPopper/ColorPopper";
-import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 
 function Takenote2(props) {
 
-const noteColor=(bgColor)=> {
-  setCreateNote(prevState => ({
-    ...prevState,
-    colour:bgColor
-  }))
-
-}
-
-
-  const noteArchieve=()=> {
-    setCreateNote(prevState => ({
+  const noteColor = (bgcolor) => {
+    setCreateNote((prevState) => ({
       ...prevState,
-      archieve:true
-    }))
-  }
+    color: bgcolor,
+    }));
+  };
 
-  const [createNote, setCreateNote] = useState({ 
-    title: "", 
-    description: "" ,
-    archieve:false,
-    colour:''
-  
+  const noteArchieve = () => {
+    setCreateNote((prevState) => ({
+      ...prevState,
+      isArchived: true,
+    }));
+  };
+
+  const [createNote, setCreateNote] = useState({
+    title: "",
+    description: "",
+    isArchived: false,
+    color: "",
   });
 
   const takeTitle = (event) => {
@@ -57,10 +54,6 @@ const noteColor=(bgColor)=> {
     props.closeTakeNote2();
     console.log("created note", createNote);
 
-   
-
-
-
     createNoteAPI(createNote)
       .then((response) => {
         console.log(response);
@@ -72,65 +65,64 @@ const noteColor=(bgColor)=> {
   };
 
   return (
-    <div className="takenote2 "  >
-      <form  style={{ backgroundColor:createNote.colour }}>
+    <div className="takenote2 " style={{ backgroundColor: createNote.color }}>
+      <form style={{ backgroundColor: createNote.color }}>
         <input
           type="text"
           placeholder="Title"
           name="title"
-          onChange={takeTitle}  style={{ backgroundColor:createNote.colour }}
+          onChange={takeTitle}
+          style={{ backgroundColor: createNote.color }}
         />
-        <div >
+        <div>
           <input
             className="note"
             type={"text"}
             name="content"
             placeholder="Take a note..."
             onChange={takeDescription}
-            sx={{ marginLeft: 15 , marginTop: 5}}
-            style={{ backgroundColor:createNote.colour }}
+            sx={{ marginLeft: 15, marginTop: 5 }}
+            style={{ backgroundColor: createNote.color }}
           />
         </div>
       </form>
 
+      <div className="mainIcon">
+        <div className="actions">
+          <IconButton type="button">
+            <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
+          </IconButton>
 
+          <IconButton type="button">
+            <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
+          </IconButton>
 
-      <IconButton type="button" sx={{ marginTop: -21, marginLeft: 10 }}>
-        <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
-      </IconButton>
-      
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
-      </IconButton>
-    
-      <IconButton type="button" sx={{ marginTop: -21.2 ,marginLeft:'5px'}}>
+          <IconButton type="button">
             <ColorPopper noteColor={noteColor} />
-              
-          </IconButton> 
+          </IconButton>
 
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <ImageOutlinedIcon></ImageOutlinedIcon>
-      </IconButton>
-      <IconButton type="button"  sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <ArchiveOutlinedIcon  onClick={noteArchieve}/>
-      </IconButton>
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <MoreVertOutlinedIcon></MoreVertOutlinedIcon>
-      </IconButton>
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <UndoOutlinedIcon></UndoOutlinedIcon>
-      </IconButton>
-      <IconButton type="button" sx={{ marginTop: -21.2, marginLeft: 1 }}>
-        <RedoOutlinedIcon></RedoOutlinedIcon>
-      </IconButton>
-      <IconButton
-        type="button"
-        onClick={create}
-        sx={{ marginLeft: 4, marginTop: -21, fontSize: 16 }}
-      >
-        Close
-      </IconButton>
+          <IconButton type="button">
+            <ImageOutlinedIcon></ImageOutlinedIcon>
+          </IconButton>
+          <IconButton onClick={noteArchieve} type="button">
+            <ArchiveOutlinedIcon />
+          </IconButton>
+          <IconButton type="button">
+            <MoreVertOutlinedIcon></MoreVertOutlinedIcon>
+          </IconButton>
+          <IconButton type="button">
+            <UndoOutlinedIcon></UndoOutlinedIcon>
+          </IconButton>
+          <IconButton type="button">
+            <RedoOutlinedIcon></RedoOutlinedIcon>
+          </IconButton>
+        </div>
+
+        <IconButton type="button" onClick={create}>
+          <p className="close"> Close</p>
+        </IconButton>
+      </div>
     </div>
   );
 }
-export default Takenote2
+export default Takenote2;

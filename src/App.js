@@ -11,15 +11,16 @@ import Register from './pages/Register/Register';
 import Dashboard from "./pages/Dashboard/Dashboard";
  import Signin from './pages/Signin/Signin';
 import Takenote3 from "./Component/takeNote3/takeNote3";
+import { Provider } from "react-redux";
+import store from "./Component/Redux/store";
 
 function App() {
   return (
     <div className="App">
-              
-  <Dashboard></Dashboard>
-  
 
-  {/* <Takenote3></Takenote3>  */}
+     <Provider store={store}>
+     <Dashboard />
+    </Provider>
 
 
     

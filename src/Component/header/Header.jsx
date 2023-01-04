@@ -10,7 +10,7 @@ import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import '../header/header.css'
 import { TextField } from "@mui/material"; 
-
+import { connect } from 'react-redux';
 
 
 function Header(props) {
@@ -26,13 +26,11 @@ props.headerpart()
             </IconButton>
 
             <img src='keeplogo.png' alt="keep"></img>
-            <h1>Keep</h1>
+            <h1>{props.label}</h1>
 
-            <InputBase sx={{width: 723,marginLeft:11,height:50}} 
+            <InputBase sx={{width: 723,marginLeft:11,height:50 , backgroundColor:"smokewhite"}} 
             placeholder="Search"/>
-            {/* <TextField type={'text'} 
-            sx={{ width:720,marginLeft:11.2,marginTop:1.2,marginBottom:1.2}} 
-            placeholder="Search"/>  */}
+           
 
             <IconButton type="button" sx={{ marginLeft:-6.5}}>
                 <ClearIcon />
@@ -60,4 +58,9 @@ props.headerpart()
     )
 }
 
-export default Header
+const mapStateToProps=(state)=>{
+    return { 
+        label:state.drawerReducer.label
+    }   
+   }
+   export default connect(mapStateToProps)(Header)

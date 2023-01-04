@@ -1,11 +1,10 @@
 .HeaderBar{
-    margin-top: -10px;
-    width: 100vw;
+     width: 100vw;
     height: 9.6vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 1.5px solid lightgray;
+    border: 1.5px solid lightgray; 
     
 }
 .HeaderBar img{

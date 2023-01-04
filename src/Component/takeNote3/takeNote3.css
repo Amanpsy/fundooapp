@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: row;
     border-color: black;
-    height: 25vh;
+    height: 17%;
      margin-left: 5px;
     margin-top: 7px; 
     justify-content:space-between;
     width: 20vw;
-    border: 1px solid black
-    
-    
+    margin-right: 15px;
+
 }
 
 
@@ -24,15 +23,17 @@
     justify-content: flex;
 }
 .title{
-    margin-left: 20%;
+    
     margin-bottom: 20%;
     margin-top: 40;
+    padding: 12px 16px 0px;
 }
 .note-txt3{
     padding-inline-start: 3%;
 }
 .description{
-    height: 50%;
+    height: 30%;
+    padding: 4px 16px 12px;
 }
 .logo{
     display: flex;
@@ -41,4 +42,21 @@
     align-items: center;
     height: 30%;
     margin-bottom: 100;
+}
+.bigbox{
+    background-color: black;
+}
+.para{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+}
+.pin{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
 }

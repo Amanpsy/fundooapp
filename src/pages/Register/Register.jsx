@@ -25,6 +25,7 @@ function Register() {
      lastName: "",
      email: "",
      password: "",
+     service: "advance"
    });
 
   const [regexobj, setregexobj] = useState({
