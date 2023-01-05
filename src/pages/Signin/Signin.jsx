@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import { loginApi } from "../../Services/userService";
+import { useNavigate } from "react-router-dom";
 
 const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -11,6 +12,11 @@ const passwordRegex =
   /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 
 function Signin() {
+
+
+  const navigate = useNavigate()
+
+
   const [signObj, setSignobj] = useState({
     email: " ",
     password: " ",
@@ -33,6 +39,10 @@ function Signin() {
 
     setSignobj((prevState) => ({ ...prevState, password: event.target.value }));
   };
+
+  const createAccount = () => {
+    navigate('/signup')
+}
 
   const loginSucessful = () => {
     console.log(signObj);
@@ -72,6 +82,7 @@ function Signin() {
           console.log(response);
 
           localStorage.setItem("token", response.data.id);
+          navigate('/dashboard')
         })
         .catch((error) => {
           console.log(error);
@@ -121,6 +132,7 @@ function Signin() {
         <span> Learn more</span>
       </h4>
       <div className="signinlink">
+      <Button variant="text" onClick={createAccount}>Create account</Button>
         <Button variant="text" size="small" onClick={loginSucessful}>
           Sign In{" "}
         </Button>

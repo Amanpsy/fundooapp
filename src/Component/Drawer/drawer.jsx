@@ -28,7 +28,7 @@ import { connect } from "react-redux";
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
-  marginTop: 69,
+  marginTop: 77,
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -38,7 +38,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
-  marginTop: 69,
+  marginTop: 77,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,

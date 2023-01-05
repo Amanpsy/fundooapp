@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import Drawer1 from '../../Component/Drawer/drawer'
 import Header from '../../Component/header/Header'
+import Headermui from '../../Component/header/Headermui'
 import Takenote1 from '../../Component/takeNote1/takeNote1'
 import Takenote2 from '../../Component/takeNote2/takeNote2'
 import Takenote3 from '../../Component/takeNote3/takeNote3'
@@ -72,7 +73,7 @@ setHeaderState(!headerState)
   return (
 
     <div>
-  <Header headerpart={headerpart} />
+  <Headermui headerpart={headerpart} />
 
   <Drawer1  headerState={headerState} listenDrawer={listenDrawer}     />
      <div>

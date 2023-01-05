@@ -18,9 +18,9 @@ function App() {
   return (
     <div className="App">
 
-     <Provider store={store}>
-     <Dashboard />
-    </Provider>
+      <Provider store={store}>
+      <Dashboard />
+     </Provider>
 
 
     

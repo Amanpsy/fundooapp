@@ -9,7 +9,7 @@ import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import UndoOutlinedIcon from "@mui/icons-material/UndoOutlined";
 import RedoOutlinedIcon from "@mui/icons-material/RedoOutlined";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import { createNoteAPI } from "../../Services/dataService";
 import ColorPopper from "../ColorPopper/ColorPopper";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
@@ -65,7 +65,7 @@ function Takenote2(props) {
   };
 
   return (
-    <div className="takenote2 " style={{ backgroundColor: createNote.color }}>
+    <Paper className="takenote2 " style={{ backgroundColor: createNote.color }}>
       <form style={{ backgroundColor: createNote.color }}>
         <input
           type="text"
@@ -74,7 +74,7 @@ function Takenote2(props) {
           onChange={takeTitle}
           style={{ backgroundColor: createNote.color }}
         />
-        <div>
+        <box>
           <input
             className="note"
             type={"text"}
@@ -84,11 +84,11 @@ function Takenote2(props) {
             sx={{ marginLeft: 15, marginTop: 5 }}
             style={{ backgroundColor: createNote.color }}
           />
-        </div>
+        </box>
       </form>
 
-      <div className="mainIcon">
-        <div className="actions">
+      <box className="mainIcon">
+        <box className="actions">
           <IconButton type="button">
             <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
           </IconButton>
@@ -97,8 +97,8 @@ function Takenote2(props) {
             <PersonAddAltOutlinedIcon></PersonAddAltOutlinedIcon>
           </IconButton>
 
-          <IconButton type="button">
-            <ColorPopper noteColor={noteColor} />
+          <IconButton type="button"            >
+          <ColorPopper noteColor={noteColor} action= "create" />
           </IconButton>
 
           <IconButton type="button">
@@ -116,13 +116,13 @@ function Takenote2(props) {
           <IconButton type="button">
             <RedoOutlinedIcon></RedoOutlinedIcon>
           </IconButton>
-        </div>
+        </box>
 
         <IconButton type="button" onClick={create}>
           <p className="close"> Close</p>
         </IconButton>
-      </div>
-    </div>
+      </box>
+    </Paper>
   );
 }
 export default Takenote2;

@@ -1,7 +1,7 @@
 import React from "react";
 //import InputBase from '@mui/material/InputBase';
 import "../takeNote3/takeNote3.css";
-import { InputBase, Tooltip } from "@mui/material";
+import { InputBase, Paper, Tooltip } from "@mui/material";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 import IconButton from "@mui/material/IconButton";
 import AddAlertOutlinedIcon from "@mui/icons-material/AddAlertOutlined";
@@ -28,11 +28,12 @@ function Takenote3(props) {
   const style = {
     position: "absolute",
     top: "50%",
-    left: "50%",
+    left: "70%",
     transform: "translate(-50%, -50%)",
     width: 450,
     bgcolor: "background.paper",
     border: "2px solid #000",
+    BorderRadius:"20px",
     boxShadow: 24,
     p: 4,
   };
@@ -107,27 +108,27 @@ function Takenote3(props) {
   };
 
   return (
-    <div className="notebox">
-      <div className="insidebox" style={{ backgroundColor: props.note.color }}>
-        <div className="pinParent">
-          <div className="pin">
+    <Paper className="notebox">
+      <Box className="insidebox" style={{ backgroundColor: props.note.color }}>
+        <Box className="pinParent">
+          <Box className="pin">
             <Tooltip title="Pin note">
               <IconButton size="small">
                 <PushPinOutlinedIcon />
               </IconButton>
             </Tooltip>
-          </div>
-        </div>
-        <div className="para">
-          <div onClick={() => handleOpen(props.note)} className="title">
+          </Box>
+        </Box>
+        <Box className="para">
+          <Box onClick={() => handleOpen(props.note)} className="title">
             <span>{props.note.title}</span>
-          </div>
-          <div onClick={() => handleOpen(props.note)} className="description">
+          </Box>
+          <Box onClick={() => handleOpen(props.note)} className="description">
             <span>{props.note.description} </span>
-          </div>
-        </div>
+          </Box>
+        </Box>
 
-        <div className="logo">
+        <Box className="logo">
           <Tooltip title="Remind me">
             <IconButton size="small">
               <AddAlertOutlinedIcon />
@@ -161,13 +162,13 @@ function Takenote3(props) {
               <MoreVertOutlinedIcon />
             </IconButton>
           </Tooltip>
-        </div>
-      </div>
+        </Box>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}
-        // aria-labelledby="modal-modal-title"
-        // aria-describedby="modal-modal-description"
+         aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
         <Box sx={style}  style={{ backgroundColor: props.note.color }}>
           <InputBase
@@ -181,7 +182,8 @@ function Takenote3(props) {
             defaultValue={handle.descrption}
             onChange={takeDescription}
           />
-          <Box style={{display:'flex',marginTop:'32px'}}>
+          <Box className="down"  style={{display:'flex', flexDirection:'row', justifyContent:'spaceBetween', alignItems:'flex-end'}}>
+          <Box style={{display:'flex', flexDirection:'row', justifyContent:'spaceBetween'}}>
           <IconButton>
             <AddAlertOutlinedIcon sx={{ height: "30px" }} />
           </IconButton>
@@ -189,7 +191,7 @@ function Takenote3(props) {
             <PersonAddAltOutlinedIcon sx={{ height: "25px" }} />
           </IconButton>
           <IconButton>
-            <ColorPopper action="update" id={props.note.id} sx={{ height: "16px" }} />
+            <ColorPopper action="update" id={props.note.id} sx={{ height: "12px" }} />
           </IconButton>
           <IconButton>
             <DeleteIcon
@@ -206,12 +208,16 @@ function Takenote3(props) {
           <IconButton>
             <MoreVertOutlinedIcon sx={{ height: "25px" }} />
           </IconButton>
-        
+          </Box>
+          <Box className="closeButton">
          <Button onClick={() => submit(handle.noteId)}>Close </Button>
+         </Box>
+         </Box>
+        
         </Box>
-        </Box>
+       
       </Modal>
-    </div>
+    </Paper>
   );
 }
 

@@ -4,6 +4,7 @@ import "../Register/Register.css";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { signupApi } from "../../Services/userService";
+import { useNavigate } from "react-router-dom";
 
 const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -11,14 +12,8 @@ const passwordRegex =
   /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 const fnameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 function Register() {
-  
-	// const [signupobj, setsignupobj] = useState({
-	// 	firstName: "",
-	// 	lastName: "",
-	// 	email: "",
-	// 	password: "",
-	// 	service: "advance"
-	//   });
+  const navigate = useNavigate()
+	
 
    const [signupobj, setsignupobj] = useState({
      firstName: "",
@@ -67,6 +62,9 @@ function Register() {
     }));
     console.log(event.target.value);
   };
+  const signin = () => {
+		navigate('/')
+	}
   const submit = () => {
     console.log(signupobj);
     let fNameTest = fnameRegex.test(signupobj.firstName);
@@ -138,6 +136,7 @@ function Register() {
       signupApi(signupobj)
         .then((response) => {
           console.log(response);
+          navigate('/dashboard')
         })
         .catch((error) => {
           console.log(error);
@@ -223,7 +222,7 @@ function Register() {
           </span>
 
           <div className="bottom-link">
-            <Button variant="text">Sign In instead</Button>
+            <Button variant="text" onClick={signin}>>Sign In instead</Button>
             <Button variant="contained" onClick={submit}>
               NEXT
             </Button>
