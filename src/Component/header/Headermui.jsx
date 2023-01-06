@@ -215,7 +215,7 @@ function Headermui(props) {
           </Typography>
           <Search sx={{ flexGrow: 1, backgroundColor: "rgb(240, 243, 245)" }}>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{ position:'relative', left:'200px' }}  />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"

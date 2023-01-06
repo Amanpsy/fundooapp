@@ -1,5 +1,5 @@
-
-.takenote1 input{
+/* 
+.takenote1 {
     height: 7vh;
     width: 41.5vw;
     display: flex;
@@ -15,8 +15,7 @@
     outline: none;
     padding: 6px 15px;
 }
-.buttons{
-   
+.button{
 
 }
 .icon{
@@ -27,4 +26,4 @@
     position: relative;
     bottom: 45px;
     left: 300px;
-}
+} */

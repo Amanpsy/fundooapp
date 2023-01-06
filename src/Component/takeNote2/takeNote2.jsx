@@ -13,8 +13,70 @@ import { Button, Paper } from "@mui/material";
 import { createNoteAPI } from "../../Services/dataService";
 import ColorPopper from "../ColorPopper/ColorPopper";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
+import { makeStyles } from "@mui/styles";
+
+
+const useStyle = makeStyles({
+  takenote2 :{
+    height: "20vh",
+    width: "41.5vw",
+    margin: "32px auto 57px auto",
+    background: "#fff",
+    padding: "7px",
+    borderRadius:" 7px",
+    boxShadow: "0 1px 7px rgb(128, 128, 128)",
+    flexDirection: "row",
+    position: "relative",
+    top: "3px",
+    left: "46px"
+  },
+   
+  takenote2forminput :{
+    width: "98%",
+    border: "none",
+    margin: "4px 10px",
+    flexDirection: "column",
+    fontSize: "1rem",
+    outline: "none",
+  },
+  takenote2note:{
+    height: "5vh",
+    width: "10vw",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: "1%",
+    marginBottom: "30px",
+    marginLeft: "-1%",
+    borderRadius: "0.5rem",
+    border: "none",
+    fontSize: "medium",
+    outline: "none",
+    padding: "6px 15px"
+  },
+  mainIcon:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+    
+  },
+  close:{
+    fontSize: "medium",
+    position: "relative",
+   bottom:" 10px"
+  
+  },
+  actions:{
+   position: "relative",
+   bottom: "10px"
+  }
+})
+
 
 function Takenote2(props) {
+
+  const classes = useStyle()
 
   const noteColor = (bgcolor) => {
     setCreateNote((prevState) => ({
@@ -65,10 +127,11 @@ function Takenote2(props) {
   };
 
   return (
-    <Paper className="takenote2 " style={{ backgroundColor: createNote.color }}>
+    <Paper className={classes.takenote2}style={{ backgroundColor: createNote.color }}>
       <form style={{ backgroundColor: createNote.color }}>
-        <input
+        <input className={classes.takenote2forminput}
           type="text"
+          
           placeholder="Title"
           name="title"
           onChange={takeTitle}
@@ -76,7 +139,7 @@ function Takenote2(props) {
         />
         <box>
           <input
-            className="note"
+            className={classes.takenote2note}
             type={"text"}
             name="content"
             placeholder="Take a note..."
@@ -87,8 +150,8 @@ function Takenote2(props) {
         </box>
       </form>
 
-      <box className="mainIcon">
-        <box className="actions">
+      <box className={classes.mainIcon}>
+        <box className={classes.actions}>
           <IconButton type="button">
             <AddAlertOutlinedIcon></AddAlertOutlinedIcon>
           </IconButton>
@@ -119,7 +182,7 @@ function Takenote2(props) {
         </box>
 
         <IconButton type="button" onClick={create}>
-          <p className="close"> Close</p>
+          <p className={classes.close}> Close</p>
         </IconButton>
       </box>
     </Paper>

@@ -21,22 +21,89 @@ import {
   trashNoteApi,
 } from "../../Services/dataService";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import ColorPopper from "../ColorPopper/ColorPopper";
+import { makeStyles } from "@mui/styles";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "70%",
+  transform: "translate(-50%, -50%)",
+  width: 450,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  BorderRadius:"20px",
+  boxShadow: 24,
+  p: 4,
+};
+const useStyle = makeStyles({
+
+  notebox :{
+    display: "flex",
+    flexDirection: "row",
+    borderColor: "black",
+    height: "17%",
+    marginLeft: "5px",
+    marginTop: "7px",
+    justifyContent: "space-between",
+    width: "16vw",
+    marginRight: "15px",
+  },
+  
+  insidebox :{
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    height:" 99%",
+    border: "1px solid #e0e0e0",
+    borderRadius: "8px",
+    boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.6)",
+    justifyContent: "flex",
+  },
+  title: {
+    marginBottom:" 1%",
+    marginTop: "-35px",
+    padding: "12px 16px 0px",
+  },
+  notetxt3:{
+    paddingInlineStart: "3%"
+  },
+  description :{
+    height: "5%",
+    padding: "4px 16px 12px"
+  },
+  logo: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "30%",
+    marginBottom: "100"
+  },
+  bigbox: {
+    backgroundColor: "black"
+  },
+  para: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent:" space-between",
+    alignItems: "flex-start"
+  },
+  pin: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  }
+  
+
+})
 
 function Takenote3(props) {
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "70%",
-    transform: "translate(-50%, -50%)",
-    width: 450,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    BorderRadius:"20px",
-    boxShadow: 24,
-    p: 4,
-  };
+
+  const classes = useStyle()
+
+
   const [open, setOpen] = React.useState(false);
   const [handle, sethandle] = React.useState({
     noteId: "",
@@ -108,10 +175,10 @@ function Takenote3(props) {
   };
 
   return (
-    <Paper className="notebox">
-      <Box className="insidebox" style={{ backgroundColor: props.note.color }}>
+    <Paper className={classes.notebox}>
+      <Box className={classes.insidebox} style={{ backgroundColor: props.note.color }}>
         <Box className="pinParent">
-          <Box className="pin">
+          <Box className={classes.pin}>
             <Tooltip title="Pin note">
               <IconButton size="small">
                 <PushPinOutlinedIcon />
@@ -119,16 +186,16 @@ function Takenote3(props) {
             </Tooltip>
           </Box>
         </Box>
-        <Box className="para">
-          <Box onClick={() => handleOpen(props.note)} className="title">
+        <Box className={classes.para}>
+          <Box onClick={() => handleOpen(props.note)} className={classes.title}>
             <span>{props.note.title}</span>
           </Box>
-          <Box onClick={() => handleOpen(props.note)} className="description">
+          <Box onClick={() => handleOpen(props.note)} className={classes.description}>
             <span>{props.note.description} </span>
           </Box>
         </Box>
 
-        <Box className="logo">
+        <Box className={classes.logo}>
           <Tooltip title="Remind me">
             <IconButton size="small">
               <AddAlertOutlinedIcon />

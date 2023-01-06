@@ -82,7 +82,7 @@ setHeaderState(!headerState)
     }
     
 
-    <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',width:'70vw',position:'relative',left:'200px',height:'auto'}}>    
+    <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',width:'70vw',position:'relative',left:'250px',height:'auto'}}>    
                 {
                   
                      getNote.map((note)=>(<Takenote3 note={note}/>))
