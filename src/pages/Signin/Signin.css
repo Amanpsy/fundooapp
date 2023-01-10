@@ -1,9 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
-  }
-   body {
-    min-height: 100vh;
+
+   .pagewrapper {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +27,10 @@
     margin-bottom: 3px;
     font-weight: lighter;
   }   
+  mqEmail{
+    width: 100%;
+  }
+
 
   .use {
     margin-top: 10px;
@@ -93,8 +94,8 @@
   .forgot, .guest span , .createbutton{
     color: #4285f4;
   }
-  img {
+  .googleimg {
     max-width: 70px;
-    max-height: 50px;
+    max-height: 40px;
   } 
   

@@ -1,40 +1,55 @@
+/* .takenote2 {
+  height: 20vh;
+  width: 41.5vw;
+  margin: 32px auto 57px auto;
+  background: #fff;
+  padding: 7px;
+  border-radius: 7px;
+  box-shadow: 0 1px 7px rgb(128, 128, 128);
+  flex-direction: row;
+  position: relative;
+  top: 3px;
+  left: 46px;
+}
 
-.takenote2 form{
-    height: 20vh;
-    width: 41.5vw;
-    margin: 32px auto 57px auto;
-    background: #fff;
-    padding: 7px;
-    border-radius: 7px;
-    box-shadow: 0 1px 7px rgb(128, 128, 128);
-    flex-direction: row;
-    position: relative;
-    top:3px;
-    left: 46px;
 
-   }
-   .takenote2 form input{
-    width: 98%;
-    border: none;
-    margin: 4px 10px;
-      flex-direction: column;
-    font-size: 1rem;
-    outline: none;
-
-   }
-   .takenote2 .note{
-    height: 5vh;
-    width: 10vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.takenote2 form input {
+  width: 98%;
+  border: none;
+  margin: 4px 10px;
+  flex-direction: column;
+  font-size: 1rem;
+  outline: none;
+}
+.takenote2 .note {
+  height: 5vh;
+  width: 10vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1%;
+  margin-bottom: 30px;
+  margin-left: -1%;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: medium;
+  outline: none;
+  padding: 6px 15px;
+}
+.mainIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   
-    margin-top: 1%;
-    margin-bottom: 30px;
-    margin-left: -1%;
-    border-radius: 0.5rem;
-    border: none;
-    font-size: medium;
-    outline: none;
-    padding: 6px 15px;
-   }
+}
+.close{
+  font-size: medium;
+  position: relative;
+ bottom: 10px;
+
+}
+.actions{
+ position: relative;
+ bottom: 10px;
+} */
