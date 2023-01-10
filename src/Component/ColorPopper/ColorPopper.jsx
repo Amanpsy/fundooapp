@@ -41,7 +41,7 @@ console.log(color,"Updating color")
   return (
     <div>
      
-    <PaletteOutlinedIcon  onClick={handleClick}/> 
+    <PaletteOutlinedIcon  sx={{height:"25px"}} onClick={handleClick}/> 
       <Popper id={id} open={open} anchorEl={anchorEl}>
         <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper', display:'flex', flexDirection:'row' }}>
           {

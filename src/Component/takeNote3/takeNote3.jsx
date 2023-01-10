@@ -27,18 +27,17 @@ import { makeStyles } from "@mui/styles";
 const style = {
   position: "absolute",
   top: "50%",
-  left: "70%",
+  left: "50%",
   transform: "translate(-50%, -50%)",
   width: 450,
   bgcolor: "background.paper",
   border: "2px solid #000",
-  BorderRadius:"20px",
+  BorderRadius: "20px",
   boxShadow: 24,
   p: 4,
 };
 const useStyle = makeStyles({
-
-  notebox :{
+  notebox: {
     display: "flex",
     flexDirection: "row",
     borderColor: "black",
@@ -49,28 +48,28 @@ const useStyle = makeStyles({
     width: "16vw",
     marginRight: "15px",
   },
-  
-  insidebox :{
+
+  insidebox: {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    height:" 99%",
+    height: " 99%",
     border: "1px solid #e0e0e0",
     borderRadius: "8px",
     boxShadow: "1px 1px 5px rgba(0, 0, 0, 0.6)",
     justifyContent: "flex",
   },
   title: {
-    marginBottom:" 1%",
+    marginBottom: " 1%",
     marginTop: "-35px",
     padding: "12px 16px 0px",
   },
-  notetxt3:{
-    paddingInlineStart: "3%"
+  notetxt3: {
+    paddingInlineStart: "3%",
   },
-  description :{
+  description: {
     height: "5%",
-    padding: "4px 16px 12px"
+    padding: "4px 16px 12px",
   },
   logo: {
     display: "flex",
@@ -78,31 +77,27 @@ const useStyle = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
     height: "30%",
-    marginBottom: "100"
+    marginBottom: "100",
   },
   bigbox: {
-    backgroundColor: "black"
+    backgroundColor: "black",
   },
   para: {
     display: "flex",
     flexDirection: "column",
-    justifyContent:" space-between",
-    alignItems: "flex-start"
+    justifyContent: " space-between",
+    alignItems: "flex-start",
   },
   pin: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "center",
-  }
-  
-
-})
+  },
+});
 
 function Takenote3(props) {
-
-  const classes = useStyle()
-
+  const classes = useStyle();
 
   const [open, setOpen] = React.useState(false);
   const [handle, sethandle] = React.useState({
@@ -125,7 +120,7 @@ function Takenote3(props) {
   const updateArchieve = (id) => {
     let data = {
       noteIdList: [id],
-      isArchived: true,
+      isArchived: true
     };
 
     getArchievenoteAPI(data)
@@ -176,7 +171,10 @@ function Takenote3(props) {
 
   return (
     <Paper className={classes.notebox}>
-      <Box className={classes.insidebox} style={{ backgroundColor: props.note.color }}>
+      <Box
+        className={classes.insidebox}
+        style={{ backgroundColor: props.note.color }}
+      >
         <Box className="pinParent">
           <Box className={classes.pin}>
             <Tooltip title="Pin note">
@@ -190,7 +188,10 @@ function Takenote3(props) {
           <Box onClick={() => handleOpen(props.note)} className={classes.title}>
             <span>{props.note.title}</span>
           </Box>
-          <Box onClick={() => handleOpen(props.note)} className={classes.description}>
+          <Box
+            onClick={() => handleOpen(props.note)}
+            className={classes.description}
+          >
             <span>{props.note.description} </span>
           </Box>
         </Box>
@@ -234,10 +235,10 @@ function Takenote3(props) {
       <Modal
         open={open}
         onClose={handleClose}
-         aria-labelledby="modal-modal-title"
+        aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}  style={{ backgroundColor: props.note.color }}>
+        <Box sx={style} style={{ backgroundColor: props.note.color }}>
           <InputBase
             className="note-txt2"
             defaultValue={handle.title}
@@ -249,40 +250,55 @@ function Takenote3(props) {
             defaultValue={handle.descrption}
             onChange={takeDescription}
           />
-          <Box className="down"  style={{display:'flex', flexDirection:'row', justifyContent:'spaceBetween', alignItems:'flex-end'}}>
-          <Box style={{display:'flex', flexDirection:'row', justifyContent:'spaceBetween'}}>
-          <IconButton>
-            <AddAlertOutlinedIcon sx={{ height: "30px" }} />
-          </IconButton>
-          <IconButton>
-            <PersonAddAltOutlinedIcon sx={{ height: "25px" }} />
-          </IconButton>
-          <IconButton>
-            <ColorPopper action="update" id={props.note.id} sx={{ height: "12px" }} />
-          </IconButton>
-          <IconButton>
-            <DeleteIcon
-              sx={{ height: "25px" }}
-              onClick={() => trash(props.note.id)}
-            />
-          </IconButton>
-          <IconButton>
-            <ArchiveOutlinedIcon
-              sx={{ height: "18px" }}
-              onClick={() => updateArchieve(props.note.id)}
-            />
-          </IconButton>
-          <IconButton>
-            <MoreVertOutlinedIcon sx={{ height: "25px" }} />
-          </IconButton>
+          <Box
+            className="down"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "spaceBetween",
+              alignItems: "flex-end",
+              position: "relative",
+              top: "20px",
+            }}
+          >
+            <Box
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "spaceBetween",
+                alignItems: "flex-end",
+              }}
+            >
+              <IconButton>
+                <AddAlertOutlinedIcon sx={{ height: "30px" }} />
+              </IconButton>
+              <IconButton>
+                <PersonAddAltOutlinedIcon sx={{ height: "25px" }} />
+              </IconButton>
+              
+                 <ColorPopper action="update" id={props.note.id} />
+              
+              <IconButton>
+                <DeleteIcon
+                  sx={{ height: "25px" }}
+                  onClick={() => trash(props.note.id)}
+                />
+              </IconButton>
+              <IconButton>
+                <ArchiveOutlinedIcon
+                  sx={{ height: "18px" }}
+                  onClick={() => updateArchieve(props.note.id)}
+                />
+              </IconButton>
+              <IconButton>
+                <MoreVertOutlinedIcon sx={{ height: "25px" }} />
+              </IconButton>
+            </Box>
+            <Box className="closeButton">
+              <Button onClick={() => submit(handle.noteId)}>Close </Button>
+            </Box>
           </Box>
-          <Box className="closeButton">
-         <Button onClick={() => submit(handle.noteId)}>Close </Button>
-         </Box>
-         </Box>
-        
         </Box>
-       
       </Modal>
     </Paper>
   );

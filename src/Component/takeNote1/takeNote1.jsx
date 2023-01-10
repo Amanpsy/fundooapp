@@ -31,7 +31,7 @@ function Takenote1(props) {
 
   return (
     <Paper className={classes.takenoteOne} elevation={2} onClick={openNote}>
-    <InputBase type="text" placeholder="Take a note..."    style={{position:'relative', right:'200px'}}    />
+    <InputBase type="text" placeholder="Take a note..."    style={{position:'relative', right:'240px'}}    />
     <div style={{display:'flex', marginTop:'-33px',marginLeft:'550px',justifyContent:"space-between", width: '5%'}}>
     <IconButton>
               <CheckBoxOutlinedIcon />

@@ -14,6 +14,8 @@ function Dashboard() {
     const[headerState,setHeaderState] = useState(false)
     const [drawerState,setDrawerState]=useState('Notes')
     
+
+   
     
  const openTakeNote2 = () => {
       settoggle(true)
@@ -78,7 +80,7 @@ setHeaderState(!headerState)
   <Drawer1  headerState={headerState} listenDrawer={listenDrawer}     />
      <div>
     {
-      toggle ? <Takenote2 closeTakeNote2={closeTakeNote2} /> : <Takenote1 openTakeNote2={openTakeNote2} />
+      toggle ? <Takenote2  closeTakeNote2={closeTakeNote2} /> : <Takenote1 openTakeNote2={openTakeNote2} />
     }
     
 
@@ -86,7 +88,7 @@ setHeaderState(!headerState)
                 {
                   
                      getNote.map((note)=>(<Takenote3 note={note}/>))
-                    //  getNote.map((note)=>(<div style={{width:"200px", height:"250px", border:"1px solid black" }}/>))
+                   
                     
                 }
             </div>
