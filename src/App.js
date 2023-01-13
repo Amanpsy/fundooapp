@@ -16,9 +16,10 @@ function App() {
   return (
     <div className="App">
               
-  <Dashboard></Dashboard>
+  <Dashboard></Dashboard>  
+  {/* <Signin></Signin> */}
   
-
+     
   {/* <Takenote3></Takenote3>  */}
 
 
